@@ -1,0 +1,35 @@
+.px-breadcrumb {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+  
+  .separator{
+    padding: 0 .7rem;
+  }
+  
+  ::ng-deep.breadcrumb-container{
+    .breadcrumb  {
+        font-style: italic;
+    .breadcrumb-item {
+      a{
+        color: #8A867C;
+        font-weight: 400;
+        font-style: italic;
+        line-height: 20px;
+        &.active{
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        text-decoration-color: var(--primary-03);
+      }
+      }
+      
+      &.active{
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        text-decoration-color: var(--primary-03);
+      }
+    }
+    }
+  }
+  
+  

@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row g-0">
+        <div class="col-5 col-md-4 col-lg-3 vh-custom-height">
+            <div class="mlps-nav">
+                <div class="nav nav-tabs nav-tabs-vertical" id="nav-vertical-tab-ico" aria-orientation="vertical">
+                    @for(tab of tabsList; track $index) {
+                    <a class="nav-link align-items-center justify-content-end rtl-tab" role="button"
+                        id="nav-vertical-tab-ico{{$index}}-tab" data-bs-toggle="tab" (click)="onChangeTab($index)"
+                        [ngClass]="{
+                    'active': $index == selectedTab,
+                    'disabled': tab.disabled, 
+                    'success': tab.success
+                    }">
+                        <span>{{tab.name}}</span>
+                        <div class="w-19px">
+                            @if(tab.showCheck){
+                            <img src="src/assets/svg/check.svg"  alt="check-success" />
+                            }
+                            @if(tab.showWarning){
+                            <img src="src/assets/svg/warning.svg" alt="warning-circle" />
+                            }
+                        </div>
+                    </a>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="col-7 col-md-8 col-lg-9">
+            <div class="tab-content bg-white" id="nav-vertical-tab-icoContent">
+                <div class="tab-pane p-3 fade show active vh-custom-height opacity-09">
+                    <ng-container *ngComponentOutlet="tabsList[selectedTab]!.component"></ng-container>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

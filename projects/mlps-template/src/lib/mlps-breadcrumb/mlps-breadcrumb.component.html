@@ -1,0 +1,27 @@
+<nav class="breadcrumb-container px-breadcrumb" [ngClass]="{'px-breadcrumb':router.url==='/assistenza' }"
+  aria-label="Percorso di navigazione">
+  <ol class="breadcrumb mb-0">
+    <li class="breadcrumb-item">
+      <a class="text-decoration-none" role="button" (click)="navigateToHome()">Servizi</a>
+      <img class="separator" src="src/assets/svg/breadcrumb.svg" alt="Maggiore per breadcrumb" />
+    </li>
+    <li class="breadcrumb-item">
+      <a routerLink="/home"
+        [ngClass]="{'active':breadcrumbItems.length == 0,'text-decoration-none':breadcrumbItems.length > 0}">Fermo
+        Pesca</a>
+    </li>
+    @for(item of breadcrumbItems; track $index){
+    @if($index<breadcrumbItems.length-1){ <li class="breadcrumb-item">
+      <img class="separator" src="src/assets/svg/breadcrumb.svg" alt="Maggiore per breadcrumb" />
+      <a class="text-decoration-none" [routerLink]="item.link">{{item.label}}</a>
+      <!-- <img class="separator" src="public/svg/breadcrumb.svg" alt="Maggiore per breadcrumb" /> -->
+      </li>
+      } @else {
+      <li class="breadcrumb-item active" aria-current="page">
+        <img class="separator" src="src/assets/svg/breadcrumb.svg" alt="Maggiore per breadcrumb" />
+        <a class="text-underline">{{item.label}}</a>
+      </li>
+      }
+      }
+  </ol>
+</nav>

@@ -1,0 +1,79 @@
+:root {
+    //Default
+      --primary-01:#006EDB;
+    //Hover
+      --primary-02:#0059B2;
+    //Active
+      --primary-03:#1B548E;
+    //Text
+      --primary-04:#17324D;
+    //Border
+      --primary-05:#1B558E;
+    //Disable
+      --secondary-01:#99C7F5;
+    //Chart
+      --secondary-02:#CCE3FA;
+    //Selection Background
+      --secondary-03:#F0F6FC;
+    
+    //Validator & Success 
+      --green:#1A845F;
+    //Notification & Warning
+      --orange:#B35F00;
+    //Error
+      --red:#D1344C;
+    
+    //Neutrale - White
+      --white:#FFFFFF;
+    //Page Backgound
+      --light-grey:#F8F9FB;
+    //Modal Background
+      --dark-blue-01: #003063;
+    //Wave Background
+      --light-blue:#F1F5FF;
+    //Text disabled
+      --medium-grey:#647182;
+      --medium-grey-2: #66667A;
+    //Footer
+      --dark-blue:#001A33;
+    //shadows
+      --shadow-dark: #002B55;
+    //Icon
+      --blue:#00B0FF;
+    
+      --bs-body-font-family:"Titillium Web Regular", Arial, Helvetica, sans-serif;
+    }
+    
+    $colors: (
+      "primary-01": var(--primary-01),
+      "primary-02": var(--primary-02),
+      "primary-03": var(--primary-03),
+      "primary-04": var(--primary-04),
+      "secondary-01": var(--secondary-01),
+      "secondary-02": var(--secondary-02),
+      "secondary-03": var(--secondary-03),
+      "green":var(--green),
+      "orange":var(--orange),
+      "red":var(--red),
+      "white":var(--white),
+      "light-grey":var(--light-grey),
+      "light-blue":var(--light-blue),
+      "medium-grey":var(--medium-grey),
+      "medium-grey-2":var(--medium-grey-2),
+      "dark-blue":var(--dark-blue),
+      "blue":var(--blue),
+     
+    );
+    
+    @each $color, $value in $colors {
+      .bg-#{$color} {
+        background-color: $value !important ;
+      }
+      .text-#{$color} {
+        color: $value !important;
+      }
+      .fill-#{$color} {
+        fill: $value;
+      }
+    }
+    

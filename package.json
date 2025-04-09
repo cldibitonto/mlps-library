@@ -34,6 +34,10 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "ng-packagr": "^18.2.0",
-    "typescript": "~5.5.2"
+    "typescript": "~5.5.2",
+    "bootstrap": "^5.3.3",
+    "bootstrap-italia": "2.11.0",
+    "design-angular-kit": "1.1.2",
+    "primeng": "^17.18.11"
   }
 }
