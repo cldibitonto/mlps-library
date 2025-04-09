@@ -4,3 +4,5 @@
 
 export * from './lib/mlps-template.service';
 export * from './lib/mlps-template.component';
+export * from './test/test.component';
+export * from './lib/mlps-wizard/mlps-wizard.component';
