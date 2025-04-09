@@ -1,0 +1,110 @@
+@media (max-width: 991px) {
+    .header-logo {
+      height: 40px;
+      margin-right: 0.25rem;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    .header-logo {
+      height: 40px;
+      margin-right: 0.25rem;
+    }
+  }
+  
+  .it-brand-title {
+    // font-family: "Titillium Web", Arial;
+    // font-weight: normal !important;
+    // font-size: 18px !important;
+  }
+  
+  .social-item-anchor {
+    height: 30px;
+    margin-left: 0.5rem;
+  }
+  
+  .it-header-wrapper-top {
+    background-color: #2769b5;
+    height: 38px;
+  }
+  
+  .cliclavoro-logo {
+    height: 65px;
+    margin-top: -15px;
+  }
+  
+  .nav-link {
+    height: 32px;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    color: #666 !important;
+    font-weight: 600 !important;
+    font-size: 16px !important;
+    line-height: 1 !important;
+  }
+  
+  .nav-link svg {
+    fill: #666 !important;
+    margin-top: 0 !important;
+  }
+  
+  .dropdown-item {
+    color: #666 !important;
+  }
+  
+  .nav-link.active {
+    text-decoration: underline !important;
+  }
+  
+  .navbar .navbar-collapsable .menu-wrapper .navbar-nav .dropdown-menu {
+    z-index: 10 !important;
+  }
+  
+  .navbar
+    .navbar-collapsable
+    .navbar-nav
+    li
+    a.nav-link.dropdown-toggle[aria-expanded="true"]
+    .icon {
+    transform: none !important;
+  }
+  
+  .nav-link-cliclavoro svg {
+    margin-top: -5px !important;
+  }
+  
+  .custom-navbar-mobile {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .nav-link-sportello {
+    text-decoration: none;
+    display: flex;
+    padding: 0px 8px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    height: 60px;
+    background-color: #eea43c;
+    border-radius: 0;
+  }
+  
+  ::ng-deep .it-header-wrapper{
+    .it-nav-wrapper{
+      .it-header-center-wrapper{
+        background: #013366;
+      }
+    }
+  }
+  
+  .it-header-slim-wrapper{
+    background: #013366;
+    height: 60px;
+  }
+  
+  .it-header-navbar-wrapper{
+    height: 60px;
+    box-shadow: 0 2rem 2rem #0000001a;
+  }

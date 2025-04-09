@@ -1,0 +1,135 @@
+<header class="it-header-wrapper">
+    <div class="it-header-slim-wrapper">
+      <div class="container m-auto">
+        <div class="row">
+          <div class="col-12">
+            <div class="it-header-slim-wrapper-content">
+              <a href="#" class="d-flex flex-row align-items-center">
+                <img src="src/assets/img/logo-repubblica-italiana-white.png" class="header-logo" alt="logo della Repubblica italiana" />
+                <div class="it-brand-text">
+                  <div class="it-brand-title d-none d-xl-inline-block">
+                    {{title}}
+                  </div>
+                  <div class="it-brand-title d-none d-xl-none d-md-inline-block"> MLPS </div>
+                </div>
+              </a>
+              <div class="it-header-slim-right-zone">
+                <div class="d-flex align-items-center">
+                  <img src="src/assets/img/bandiera-europea.jpg" class="header-logo" alt="bandiera dell'Unione europea"/>
+                  <div class="it-brand-text visible-lg-inline d-none d-xl-block">
+                    <div class="it-brand-title text-white">
+                      {{ "Seguici su:"}}
+                    </div>
+                  </div>
+                  @for(item of socialMediaItems; track $index){
+                  <a target="_blank" [href]="item.url" [title]="item.label">
+                    <img [src]="item.icon" alt="link" class="social-item-anchor d-none d-xl-block"/>
+                  </a>
+                  }
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="it-header-wrapper-top"></div>
+    <div class="it-header-navbar-wrapper bg-white">
+      <div class="container d-flex justify-content-between">
+        <a href="https://www.cliclavoro.gov.it" target="_blank" class="navbar-brand logo">
+          <img src="src/assets/img/logo-cliclavoro.png" alt="" class="cliclavoro-logo" />
+        </a>
+        <nav class="navbar navbar-expand-lg has-megamenu" aria-label="Navigazione Clic Lavoro">
+          <div class="navbar-collapsable" id="navClicLavoro" style="display: none">
+            <div class="overlay" style="display: none"></div>
+            <div class="close-div">
+              <button class="btn close-menu" type="button">
+                <span class="visually-hidden">Nascondi la navigazione</span>
+                <svg class="icon">
+                  <use href="src/assets/svg/sprites.svg#it-close-big"></use>
+                </svg>
+              </button>
+            </div>
+            <div class="menu-wrapper align-items-center">
+              <ul class="navbar-nav">
+                @for(item of menuClicLavoroItems; track $index){
+                <li class="nav-item" [class.active]="item.active" [class.dropdown]="
+                    (item.dropdown || item.megaMenu) && item.children.length > 0
+                  " [class.megamenu]="item.megaMenu && item.children.length > 0"
+                  [ariaCurrent]="item.active ? 'page' : null" [ariaDisabled]="item.disabled ? true : false">
+                  @if(!item.dropdown && !item.megaMenu){
+                  <a class="nav-link" [href]="item.routerLink" target="_blank" [class.active]="item.active"
+                    [class.disabled]="item.disabled" [id]="'menu-item-' + $index">
+                    <span>{{ item.label }}</span>
+                  </a>
+                  } @else { @if(item.dropdown){
+                  <a class="nav-link nav-link-cliclavoro dropdown-toggle" [class.active]="item.active" href="#"
+                    role="button" data-bs-toggle="dropdown" aria-expanded="false" [id]="'menu-item-' + $index">
+                    <span>{{ item.label }}</span>
+                    <svg class="icon">
+                      <use href="src/assets/svg/sprites.svg#it-arrow-down-triangle"></use>
+                    </svg>
+                  </a>
+                  } @if(item.megaMenu){
+                  <button type="button" class="nav-link nav-link-cliclavoro dropdown-toggle px-lg-2 px-xl-3"
+                    data-bs-toggle="dropdown" aria-expanded="false" [id]="'menu-item-' + $index" data-focus-mouse="false">
+                    <span>{{ item.label }}</span>
+                    <svg class="icon">
+                      <use href="src/assets/svg/sprites.svg#it-arrow-down-triangle"></use>
+                    </svg>
+                  </button>
+                  } } @if(item.dropdown && item.children.length > 0){
+                  <div class="dropdown-menu" role="menu">
+                    <div class="link-list-wrapper">
+                      <ul class="link-list">
+                        @for(child of item.children; track $index){
+                        <li>
+                          <a class="dropdown-item list-item" [href]="child.routerLink" target="_blank">
+                            {{ child.label }}
+                          </a>
+                        </li>
+                        }
+                      </ul>
+                    </div>
+                  </div>
+                  } @if(item.megaMenu && item.children.length>0){
+                  <div class="dropdown-menu shadow-lg" role="menu">
+                    <div class="megamenu pb-5 pt-3 py-lg-0">
+                      <div class="row">
+                        <div class="col-12 col-lg-8">
+                          <div class="row">
+                            <div class="col-12 col-lg-6">
+                              <div class="link-list-wrapper">
+                                <ul class="link-list">
+                                  @for(child of item.children; track $index){
+                                  <li>
+                                    <a class="dropdown-item list-item" [href]="child.routerLink" target="_blank">
+                                      <i class="pi pi-angle-right"></i>
+                                      {{ child.label }}
+                                    </a>
+                                  </li>
+                                  }
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  }
+                </li>
+                }
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <a class="nav-link-sportello text-white" href="https://servizi.lavoro.gov.it/cerca-sportello" target="_blank">
+          <svg class="icon fill-white">
+            <use href="src/assets/svg/sprites.svg#it-map-marker-circle"></use>
+          </svg>
+          <span class="d-flex"> CERCA SPORTELLO </span>
+        </a>
+      </div>
+    </div>
+  </header>
