@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { SocialMediaItem } from 'mlps-template';
+import { SocialMediaItem } from '../mlps-header/mlps-header.component';
+
 
 @Component({
   selector: 'mlps-footer',
