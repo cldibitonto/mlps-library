@@ -1,0 +1,16 @@
+{
+  "name": "mlps-template",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^18.2.0",
+    "@angular/core": "^18.2.0",
+    "bootstrap": "^5.3.3",
+    "bootstrap-italia": "2.11.0",
+    "design-angular-kit": "1.1.2",
+    "primeng": "^17.18.11"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false
+}
