@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DropdownComponent } from './dropdown.component';
+import { MlpsModalComponent } from './mlps-modal.component';
 
-describe('DropdownComponent', () => {
-  let component: DropdownComponent;
-  let fixture: ComponentFixture<DropdownComponent>;
+describe('MlpsModalComponent', () => {
+  let component: MlpsModalComponent;
+  let fixture: ComponentFixture<MlpsModalComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DropdownComponent]
+      imports: [MlpsModalComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(DropdownComponent);
+    fixture = TestBed.createComponent(MlpsModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

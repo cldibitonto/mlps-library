@@ -6,6 +6,8 @@
     "src/styles/_wizard.scss",
     "src/styles/_breadcrumb.scss",
     "src/styles/_variables.scss",
+    "src/styles/_modal.scss",
+    "src/styles/_fonts.scss",
     "src/styles.scss"
   ],
   "lib": {

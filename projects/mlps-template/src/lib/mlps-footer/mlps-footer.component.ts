@@ -1,6 +1,12 @@
 import { Component, Input } from '@angular/core';
 import { SocialMediaItem } from '../mlps-header/mlps-header.component';
 
+interface FooterItem {
+  title: string;
+  url: string;
+}
+
+export type FooterItems = FooterItem[]
 
 @Component({
   selector: 'mlps-footer',
@@ -10,7 +16,7 @@ import { SocialMediaItem } from '../mlps-header/mlps-header.component';
   styleUrl: './mlps-footer.component.scss'
 })
 export class MLPSFooterComponent {
-  @Input() logoSrc: string = ''
+  @Input() footerItems: FooterItems = []
   socialMediaItems: SocialMediaItem[] = [
     {
       icon: 'src/assets/img/f_facebook.png',

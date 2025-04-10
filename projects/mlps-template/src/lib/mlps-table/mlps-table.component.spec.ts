@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MLPSLoaderComponent } from './mlps-loader.component';
+import { MlpsTableComponent } from './mlps-table.component';
 
-describe('MlpsLoaderComponent', () => {
-  let component: MLPSLoaderComponent;
-  let fixture: ComponentFixture<MLPSLoaderComponent>;
+describe('MlpsTableComponent', () => {
+  let component: MlpsTableComponent;
+  let fixture: ComponentFixture<MlpsTableComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MLPSLoaderComponent]
+      imports: [MlpsTableComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(MLPSLoaderComponent);
+    fixture = TestBed.createComponent(MlpsTableComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

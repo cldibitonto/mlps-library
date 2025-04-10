@@ -2,6 +2,20 @@
 @import "./styles/variables";
 @import "./styles/wizard";
 @import "./styles/breadcrumb";
+@import './styles/modal';
+@import "./styles/fonts";
+
+.bold{
+  font-family: "Titillium Web Bold", Arial, Helvetica, sans-serif;
+}
+
+.semibold{
+  font-family: "Titillium Web SemiBold", Arial, Helvetica, sans-serif;
+}
+
+.regular{
+  font-family: "Titillium Web Regular", Arial, Helvetica, sans-serif;
+}
 
 html,
 body,

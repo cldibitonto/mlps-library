@@ -11,6 +11,7 @@ import { Router, ActivatedRoute, EventType, RouterLink } from '@angular/router';
 })
 export class MLPSBreadcrumbComponent {
   breadcrumbItems: any[] = [];
+  @Input() homepageName: string = 'Homepage'
   @Input() homeUrl: string = ''
 
   constructor(public router: Router,

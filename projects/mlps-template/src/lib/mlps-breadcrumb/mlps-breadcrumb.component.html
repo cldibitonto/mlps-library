@@ -7,8 +7,7 @@
     </li>
     <li class="breadcrumb-item">
       <a routerLink="/home"
-        [ngClass]="{'active':breadcrumbItems.length == 0,'text-decoration-none':breadcrumbItems.length > 0}">Fermo
-        Pesca</a>
+        [ngClass]="{'active':breadcrumbItems.length == 0,'text-decoration-none':breadcrumbItems.length > 0}">{{homepageName}}</a>
     </li>
     @for(item of breadcrumbItems; track $index){
     @if($index<breadcrumbItems.length-1){ <li class="breadcrumb-item">

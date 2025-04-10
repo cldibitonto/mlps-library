@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MLPSLoaderComponent } from './mlps-loader.component';
+import { MlpsUploadComponent } from './mlps-upload.component';
 
-describe('MlpsLoaderComponent', () => {
-  let component: MLPSLoaderComponent;
-  let fixture: ComponentFixture<MLPSLoaderComponent>;
+describe('MlpsUploadComponent', () => {
+  let component: MlpsUploadComponent;
+  let fixture: ComponentFixture<MlpsUploadComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MLPSLoaderComponent]
+      imports: [MlpsUploadComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(MLPSLoaderComponent);
+    fixture = TestBed.createComponent(MlpsUploadComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

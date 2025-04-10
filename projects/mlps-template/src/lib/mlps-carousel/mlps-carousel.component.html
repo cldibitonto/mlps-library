@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="row">
+        @if(menuCards && menuCards.length > 2){
+        <div #carousel class="it-carousel-wrapper  splide p-0" data-bs-carousel-splide
+            [ngClass]="{'it-carousel-landscape-abstract-three-cols-arrow-visible' : menuCards && menuCards.length > 2, 'it-carousel-landscape-abstract-three-cols' : menuCards && menuCards!.length <= 2}">
+            <div class="splide__track ps-2 pe-3">
+                <ul class="splide__list">
+                    @for (card of menuCards; track $index) {
+                    <li class="splide__slide">
+                        <ng-container *ngTemplateOutlet="tempCard; context: {$implicit: card}"></ng-container>
+                    </li>
+                    }
+                </ul>
+            </div>
+        </div>
+        } @else {
+        @for (card of menuCards; track $index) {
+        <ng-container *ngTemplateOutlet="tempCard; context: {$implicit: card}"></ng-container>
+        }
+        }
+    </div>
+</div>
+
+<ng-template #tempCard let-card>
+    <div class="col d-flex align-items-stretch "
+        [ngClass]="{'h-100': menuCards && menuCards.length > 2, 'col-6': menuCards && menuCards.length == 1}">
+        <div class="card-wrapper card-space mlps-menu-card" (click)="goTo(card.href , card.isEnabled)" > 
+            @if(!card.isEnabled){ <div class="overlay">
+        </div>
+        }
+        <div class="card card-bg light-shadow">
+            <div class="card-body">
+                <div class="categoryicon-top justify-content-center">
+                    <img [src]="card.icona" alt="card-icona">
+                </div>
+                <div class="card-title h2"
+                    [ngClass]="{'card-noclick':(!card.isEnabled)}">
+                    {{card.titolo}}
+                </div>
+                <p class="card-text"
+                    [ngClass]="{'card-noclick': (!card.isEnabled)}">
+                    {{card.testo}}
+                </p>
+            </div>
+        </div>
+    </div>
+    </div>
+</ng-template>

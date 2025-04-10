@@ -1,0 +1,30 @@
+.splide__slide{
+    width: calc(50% - 16px) !important;
+    @media (max-width: 768px) {
+        width: calc(100% - 16px) !important;
+    }
+}
+
+::ng-deep .splide__arrow{
+    padding: 15px !important;
+    border-radius: 4px !important;
+}
+.splide__list {
+    gap: 10px;
+}
+::ng-deep .splide__arrow[disabled]{
+    svg{
+        fill: #5C6F82 !important;
+    }
+}
+
+.light-shadow{
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); 
+}
+
+.card .categoryicon-top {
+    height: 12rem;
+}
+.h-img{
+    height: 237px;
+}

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MLPSLoaderComponent } from './mlps-loader.component';
+import { MlpsCarouselComponent } from './mlps-carousel.component';
 
-describe('MlpsLoaderComponent', () => {
-  let component: MLPSLoaderComponent;
-  let fixture: ComponentFixture<MLPSLoaderComponent>;
+describe('MlpsCarouselComponent', () => {
+  let component: MlpsCarouselComponent;
+  let fixture: ComponentFixture<MlpsCarouselComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MLPSLoaderComponent]
+      imports: [MlpsCarouselComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(MLPSLoaderComponent);
+    fixture = TestBed.createComponent(MlpsCarouselComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
