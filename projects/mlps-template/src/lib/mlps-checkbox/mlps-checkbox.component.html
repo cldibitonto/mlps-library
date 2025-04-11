@@ -1,0 +1,15 @@
+<div class="form-check">
+        <input
+        type="checkbox"
+        [checked]="value"
+        [disabled]="disabled"
+        (change)="onCheckboxChange($event)"
+        [attr.placeholder]="placeholder"
+        class="form-control"
+        [id]="fcn"/>
+    <label [for]="fcn" class="it-label">
+      <div class="ms-1 mt-1">
+        {{label}}
+      </div>
+    </label>
+</div>

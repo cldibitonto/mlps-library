@@ -17,3 +17,7 @@ export * from './lib/mlps-modal/mlps-modal.service';
 export * from './lib/mlps-paginator/mlps-paginator.component';
 export * from './lib/mlps-notification/mlps-notification.component';
 export * from './lib/mlps-table/mlps-table.component';
+export * from './lib/mlps-radio-button/mlps-radio-button.component';
+export * from './lib/mlps-text-input/mlps-text-input.component';
+export * from './lib/mlps-checkbox/mlps-checkbox.component';
+export * from './lib/mlps-dropdown/mlps-dropdown.component';
