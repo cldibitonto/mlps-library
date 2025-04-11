@@ -9,6 +9,7 @@
     "src/styles/_modal.scss",
     "src/styles/_fonts.scss",
     "src/styles/_forms.scss",
+    "src/styles/_carousel.scss",
     "src/styles.scss"
   ],
   "lib": {

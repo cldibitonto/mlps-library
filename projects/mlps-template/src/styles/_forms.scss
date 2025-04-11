@@ -1,11 +1,18 @@
-input.form-control, select.form-control, p-dropdown.form-control{
-    &:has(.p-dropdown.p-disabled){
-        background-color: #d8d9da !important;
-    }
+.form-control{
     border: 1px solid var(--medium-grey) !important;
     padding: 8px 12px !important;
     height: 48px;
     justify-content: center;
+    margin-bottom: 1rem;
+    &.is-invalid{
+        padding-right: 2rem !important;
+    }
+}
+
+p-dropdown{
+    &:has(.p-dropdown.p-disabled){
+        background-color: #d8d9da !important;
+    }
     .p-dropdown{
         display: flex;
         width: 100%;
@@ -67,22 +74,20 @@ label.it-label{
     color: var(--primary-04) !important;
     height: 48px !important;
 }
-.it-titolo{
+.it-titolo, .it-sottotitolo{
     margin-top: 1rem;
     color: var(--primary-04) !important;
 }
 
-.it-sottotitolo, .it-small, .it-checkbox{
+.it-checkbox{
     color: var(--primary-04) !important;
  }
 
- .it-sottotitolo{
-    margin-top: 1rem;
- }
 
 .it-small{
     font-size: 0.875rem;
     font-weight: 400;
+    color: var(--primary-04) !important;
 }
 
  .invalid-feedback{
@@ -102,14 +107,9 @@ label.it-label{
   }
   
   /* Aggiusta i margini per un aspetto pulito */
-  .form-control {
-    margin-bottom: 1rem;
-  }
 
 input[type=date]{
     flex-direction: column;
 }
 
-.form-control.is-invalid{
-    padding-right: 2rem !important;
-}
+

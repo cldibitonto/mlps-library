@@ -1,4 +1,4 @@
-import { NgClass } from '@angular/common';
+import { NgClass, NgTemplateOutlet } from '@angular/common';
 import { Component, ElementRef, inject, Input, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { CarouselBI } from 'bootstrap-italia';
@@ -19,7 +19,7 @@ export interface MenuCard {
 @Component({
   selector: 'mlps-carousel',
   standalone: true,
-  imports: [NgClass],
+  imports: [NgClass, NgTemplateOutlet],
   templateUrl: './mlps-carousel.component.html',
   styleUrl: './mlps-carousel.component.scss'
 })
