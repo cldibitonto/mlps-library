@@ -10,6 +10,8 @@
     "src/styles/_fonts.scss",
     "src/styles/_forms.scss",
     "src/styles/_carousel.scss",
+    "src/styles/_upload.scss",
+    "src/styles/_paginator.scss",
     "src/styles.scss"
   ],
   "lib": {

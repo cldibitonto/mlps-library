@@ -1,1 +1,9 @@
-<p>mlps-paginator works!</p>
+<it-pagination 
+[currentPage]="currentPage" 
+[pageNumbers]="numberOfPages" 
+textLinks="true"
+[currentChanger]="changerValue"
+[changerValues]="changerValues" 
+(pageEvent)="pageChange($event)"
+(changerEvent)="changerEvent($event)">
+</it-pagination>

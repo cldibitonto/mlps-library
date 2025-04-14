@@ -1,0 +1,7 @@
+::ng-deep .page-link.text{
+    text-transform: uppercase !important;
+    font-weight: bold;
+    &:hover{
+        text-decoration: underline;
+    }
+}
