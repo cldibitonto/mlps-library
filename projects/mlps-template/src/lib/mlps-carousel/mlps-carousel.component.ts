@@ -45,7 +45,7 @@ export class MLPSCarouselComponent {
   carouselOptions = {}
 
   goTo(url: string, canNavigate?: boolean) {
-    if (canNavigate) {
+    if (!canNavigate) {
       return
     }
     this.router.navigateByUrl(url);
