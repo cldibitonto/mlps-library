@@ -21,3 +21,4 @@ export * from './lib/mlps-radio-button/mlps-radio-button.component';
 export * from './lib/mlps-text-input/mlps-text-input.component';
 export * from './lib/mlps-checkbox/mlps-checkbox.component';
 export * from './lib/mlps-dropdown/mlps-dropdown.component';
+export * from './utils/functions/functions'
