@@ -7,6 +7,14 @@
 @import "./styles/forms";
 @import "./styles/carousel";
 
+.wave{
+  background: url('../../../assets/wave.svg'),var(--white);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  padding-bottom: 3rem;
+}
+
 .bold{
   font-family: "Titillium Web Bold", Arial, Helvetica, sans-serif;
 }

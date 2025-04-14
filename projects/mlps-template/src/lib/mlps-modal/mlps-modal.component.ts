@@ -18,27 +18,27 @@ export interface ModalOptions {
 }
 
 @Component({
-  selector: 'mlps-modal',
+  selector: 'mlps-info-modal',
   standalone: true,
   imports: [ItModalComponent],
   templateUrl: './mlps-modal.component.html',
   styleUrl: './mlps-modal.component.scss'
 })
-export class MLPSModalComponent {
+export class MLPSInfoModalComponent {
   size: "sm" | "lg" | "xl" | undefined;
-  @Input() title?: string;
-  @Input() paragraphText?: string
-  @Input() showResumeButton: boolean = true
-  @Input() showLeaveButton: boolean = true
-  @Input() leaveButtonText: string ='abbandona'
-  @Input() resumeButtonText: string ='riprendi'
-  @Input() text!: string;
-  @Input() idIstanza: number = 12345678;
-  @Input() idPratica: number = 12345678;
+  title?: string;
+  paragraphText?: string
+  showResumeButton: boolean = true
+  showLeaveButton: boolean = true
+  leaveButtonText: string ='abbandona'
+  resumeButtonText: string ='riprendi'
+  text: string = '';
+  idIstanza: number = 12345678;
+  idPratica: number = 12345678;
   @Input() showButton: boolean = false
   @Input() position: 'centered' | 'left' | 'right' | undefined = 'centered';
-  @Input() showAdditionalText: boolean = true;
-  @Input() type: 'success' | 'warning' = 'warning'
+  showAdditionalText: boolean = true;
+  type: 'success' | 'warning' = 'warning'
   @Output() resumeButton: EventEmitter<any> = new EventEmitter;
   @Output() leaveButton: EventEmitter<any> = new EventEmitter;
   @ViewChild('lgModal', { static: false }) lgModal!: ItModalComponent;
