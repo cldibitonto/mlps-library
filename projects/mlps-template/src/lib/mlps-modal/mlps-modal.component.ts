@@ -1,5 +1,6 @@
 import { ChangeDetectorRef, Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { ItModalComponent } from 'design-angular-kit';
+import { MLPSInfoModalService } from './mlps-modal.service';
 
 export interface ModalOptions {
   size: "sm" | "lg" | "xl" | undefined;
@@ -45,9 +46,12 @@ export class MLPSInfoModalComponent {
   @Output() linkPressed: EventEmitter<any> = new EventEmitter;
 
 
-  constructor(private readonly cdref: ChangeDetectorRef) { }
+  constructor(private readonly cdref: ChangeDetectorRef, private readonly infoModalService: MLPSInfoModalService) { 
+    this.infoModalService.setModalComponent(this)
+  }
 
   ngOnInit() {
+
     return
   }
   ngAfterContentChecked(): void {

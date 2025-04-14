@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Component, EventEmitter, inject, Input, Output } from '@angular/core';
-import { MLPSModalService } from '../mlps-modal/mlps-modal.service';
+import { MLPSInfoModalService } from '../mlps-modal/mlps-modal.service';
 import { MLPSInfoModalComponent } from '../mlps-modal/mlps-modal.component';
 import { CommonModule } from '@angular/common';
 import { FileUploadModule } from 'primeng/fileupload';
@@ -38,7 +38,7 @@ export class MLPSUploadComponent {
 
   modal!: MLPSInfoModalComponent;
 
-  constructor(private readonly modalService: MLPSModalService) { }
+  constructor(private readonly modalService: MLPSInfoModalService) { }
 
   get id(): number {
     return this._id;

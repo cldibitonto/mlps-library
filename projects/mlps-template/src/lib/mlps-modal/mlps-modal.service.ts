@@ -5,7 +5,7 @@ import { MLPSInfoModalComponent } from './mlps-modal.component';
 @Injectable({
     providedIn: 'root'
 })
-export class MLPSModalService {
+export class MLPSInfoModalService {
     private modalComponent!: MLPSInfoModalComponent;
     private readonly modalComponentSignal = signal<MLPSInfoModalComponent | undefined>(undefined);
 
