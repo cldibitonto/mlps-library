@@ -12,6 +12,8 @@
     "src/styles/_carousel.scss",
     "src/styles/_upload.scss",
     "src/styles/_paginator.scss",
+    "src/styles/_table.scss",
+    "src/styles/_notification.scss",
     "src/styles.scss"
   ],
   "lib": {

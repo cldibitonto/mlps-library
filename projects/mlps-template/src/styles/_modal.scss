@@ -52,9 +52,9 @@
           calc(var(--bs-modal-header-padding-x) * 1.5) !important;
         margin-top: -3rem;
       }
-    .show {
-      z-index: 1200;
-    }
+    // .show {
+    //   z-index: 1200;
+    // }
     .modal-content {
       height: auto;
       padding: 1rem 0 0 0;
@@ -132,7 +132,7 @@
     margin-top: 0.5rem;
   }
   
-  .modal-backdrop{
-  z-index: 1102 !important;
-  }
+//   .modal-backdrop{
+//   z-index: 1102 !important;
+//   }
   

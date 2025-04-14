@@ -1,0 +1,38 @@
+#mlps-table{
+    .p-datatable {
+    .p-datatable-wrapper {
+      box-shadow: 0 4px 6px #002B550D;
+    //     0px 4px 5px rgba(0, 0, 0, 0.14), 0px 2px 4px -1px rgba(0, 0, 0, 0.2);
+    //   border-radius: var(--border-radius-6);
+      .p-datatable-table{
+        // border-collapse: separate;
+        // border-spacing: 0 10px;
+        background-color: var(--white);
+      }
+    }
+    // .p-datatable-header {
+    // //   border: none;
+    // //   background: transparent;
+    // }
+  }
+  .p-datatable-thead {
+    // background-color: var(--blue);
+    // color: var(--white);
+
+    & > tr > th {
+      color: var(--primary-04);
+      height: 48px;
+    }
+  }
+
+  .p-datatable-tbody{
+     box-shadow: 0px 0px 30px 0px #002B550D;
+    & > tr > td{
+      // text-transform: capitalize;
+    }
+  } 
+  .p-paginator{
+    display: none;
+  }
+
+}

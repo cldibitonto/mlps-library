@@ -1,1 +1,39 @@
-<p>mlps-notification works!</p>
+<div class="btn-group btn-notifiche" *ngIf="condition">
+    <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true"
+        aria-expanded="false">
+        <div class="align-icon">
+            <img *ngIf="gestioneLetturaNotifiche" src="public/svg/pallino-notifiche.svg" alt="Notifiche non lette"
+                class="icon icon-xs margin-costum">
+            <img src="public/svg/bell.svg" class="me-2" alt="Campanella delle notifiche">
+        </div>
+    </button>
+    <div class="dropdown-menu">
+        <div class="link-list-wrapper">
+            <ul class="link-list">
+                    <ng-container *ngIf="listaNotifiche.length > 0; else nessunaNotifica">
+                            <button class="segnaNotificheLette btn btn-link" type="button" (click)="segnaTutteNotificheLette()" [disabled]="!gestioneLetturaNotifiche" [ngClass]="{'disabled-btn': !gestioneLetturaNotifiche}"> 
+                                <svg class="icon-expand icon icon-sm fill-primary-01 me-2" [ngClass]="{'icon-disabled': !gestioneLetturaNotifiche}">
+                                    <use href="public/svg/sprites.svg#it-mail-open"></use>
+                                </svg>
+                                {{'Segna come già lette'}}
+                            </button>
+                    <li *ngFor="let notifica of listaNotifiche">
+                        <a role="button" (click)="testoNotificheToggle(notifica.id, notifica.idUtente, notifica.titoloNotifica, notifica.testo, notifica.isLetto)">
+                            <div class="text-custom-gray d-flex justify-content-between" [ngClass]="{
+                        'text-primary fw-bold': !notifica.isLetto
+                    }">
+                    <div>{{ notifica.titoloNotifica }}</div> 
+                    <div>{{ notifica.dataCreazione | date: 'dd/MM' }}</div>
+                    </div>
+                        </a>
+                    </li>
+                </ng-container>
+                <ng-template #nessunaNotifica>
+                    <li class="nessunaNotifica">
+                        <span class="text-primary pt-2">{{"Nessuna notifica da mostrare"}}</span>
+                    </li>
+                </ng-template>
+            </ul>
+        </div>
+    </div>
+</div>
