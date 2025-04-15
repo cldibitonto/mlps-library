@@ -24,7 +24,7 @@
 <ng-template #tempCard let-card>
     <div class="col d-flex align-items-stretch "
         [ngClass]="{'h-100': menuCards && menuCards.length > 2, 'col-6': menuCards && menuCards.length == 1}">
-        <div class="card-wrapper card-space mlps-carousel" (click)="goTo(card.href , card.isEnabled)" > 
+        <div class="card-wrapper card-space mlps-carousel w-100" (click)="goTo(card.href , card.isEnabled)" > 
             @if(!card.isEnabled){ <div class="overlay">
         </div>
         }

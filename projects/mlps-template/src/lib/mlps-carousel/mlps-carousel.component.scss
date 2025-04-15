@@ -1,5 +1,6 @@
 .splide__slide{
     width: calc(50% - 16px) !important;
+    display: flex !important;
     @media (max-width: 768px) {
         width: calc(100% - 16px) !important;
     }
