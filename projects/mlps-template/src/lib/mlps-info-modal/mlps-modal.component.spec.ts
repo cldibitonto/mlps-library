@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MlpsModalComponent } from './mlps-modal.component';
+import { MLPSInfoModalComponent } from './mlps-info-modal.component';
 
 describe('MlpsModalComponent', () => {
-  let component: MlpsModalComponent;
-  let fixture: ComponentFixture<MlpsModalComponent>;
+  let component: MLPSInfoModalComponent;
+  let fixture: ComponentFixture<MLPSInfoModalComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MlpsModalComponent]
+      imports: [MLPSInfoModalComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(MlpsModalComponent);
+    fixture = TestBed.createComponent(MLPSInfoModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

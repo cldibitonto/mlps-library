@@ -1,5 +1,5 @@
 import { Injectable, signal } from '@angular/core';
-import { MLPSInfoModalComponent } from './mlps-modal.component';
+import { MLPSInfoModalComponent } from './mlps-info-modal.component';
 
 
 @Injectable({

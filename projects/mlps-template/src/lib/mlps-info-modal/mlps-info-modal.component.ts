@@ -1,6 +1,6 @@
 import { ChangeDetectorRef, Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { ItModalComponent } from 'design-angular-kit';
-import { MLPSInfoModalService } from './mlps-modal.service';
+import { MLPSInfoModalService } from './mlps-info-modal.service';
 
 export interface ModalOptions {
   size: "sm" | "lg" | "xl" | undefined;
@@ -13,7 +13,8 @@ export interface ModalOptions {
   showResumeButton?: boolean; // Mostra il pulsante "Riprendi"
   showLeaveButton?: boolean; // Mostra il pulsante "Abbandona"
   showExtraText?: boolean; // Mostra testo aggiuntivo
-  showButton?: boolean; // Mostra un generico pulsante
+  showButton?: boolean; // Mostra pulsante chiudi
+  keyboardClose?: boolean; // Permette di chiudere la modale tramite tasto esc della tastiera
   onLeaveButton?: () => void; // Funzione callback per il pulsante "Abbandona"
   onResumeButton?: () => void; // Funzione callback per il pulsante "Riprendi"
 }
@@ -22,8 +23,8 @@ export interface ModalOptions {
   selector: 'mlps-info-modal',
   standalone: true,
   imports: [ItModalComponent],
-  templateUrl: './mlps-modal.component.html',
-  styleUrl: './mlps-modal.component.scss'
+  templateUrl: './mlps-info-modal.component.html',
+  styleUrl: './mlps-info-modal.component.scss'
 })
 export class MLPSInfoModalComponent {
   size: "sm" | "lg" | "xl" | undefined;
@@ -36,6 +37,7 @@ export class MLPSInfoModalComponent {
   text: string = '';
   idIstanza: number = 12345678;
   idPratica: number = 12345678;
+  keyboardClose: boolean = false;
   @Input() showButton: boolean = false
   @Input() position: 'centered' | 'left' | 'right' | undefined = 'centered';
   showAdditionalText: boolean = true;
@@ -59,6 +61,7 @@ export class MLPSInfoModalComponent {
   }
   public toggle(options?: ModalOptions) {
     if (options) {
+      this.keyboardClose = options.keyboardClose ? options.keyboardClose : this.keyboardClose
       this.size = options.size
       this.type = options.type ? options.type : this.type
       this.title = options.title ? options.title : undefined

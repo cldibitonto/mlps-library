@@ -1,6 +1,6 @@
 import { ChangeDetectorRef, Component, EventEmitter, inject, Input, Output } from '@angular/core';
-import { MLPSInfoModalService } from '../mlps-modal/mlps-modal.service';
-import { MLPSInfoModalComponent } from '../mlps-modal/mlps-modal.component';
+import { MLPSInfoModalService } from '../mlps-info-modal/mlps-info-modal.service';
+import { MLPSInfoModalComponent } from '../mlps-info-modal/mlps-info-modal.component';
 import { CommonModule } from '@angular/common';
 import { FileUploadModule } from 'primeng/fileupload';
 import { downloadFromBase64, convertToBase64 } from '../../utils/functions/functions';
