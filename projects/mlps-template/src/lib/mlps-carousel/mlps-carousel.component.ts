@@ -27,9 +27,8 @@ export class MLPSCarouselComponent {
   @Input() set cards(value: MenuCard[]) {
     if (value) {
       this.menuCards = value;
-      if (this.menuCards.length > 2) {
+      if (this.menuCards.length > 2 && this.carousel) {
           this.updateCarousel();
-        ;
       }
     }
   }
