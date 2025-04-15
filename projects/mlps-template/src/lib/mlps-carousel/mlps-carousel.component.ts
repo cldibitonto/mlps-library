@@ -28,9 +28,8 @@ export class MLPSCarouselComponent {
     if (value) {
       this.menuCards = value;
       if (this.menuCards.length > 2) {
-        setTimeout(() => {
           this.updateCarousel();
-        }, 300);
+        ;
       }
     }
   }
