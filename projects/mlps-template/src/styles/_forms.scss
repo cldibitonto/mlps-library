@@ -20,6 +20,9 @@ p-dropdown{
         align-items: center;
         margin-left: -0.8rem;
         padding-left: 0.8rem;
+        background-color: transparent;
+        border: none;
+        border-radius: 0;
         .p-placeholder{
             color: var(--medium-grey-2);
         }
