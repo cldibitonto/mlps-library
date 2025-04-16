@@ -1,4 +1,4 @@
-<div class="btn-group btn-notifiche" *ngIf="condition">
+<div class="btn-group btn-notifiche">
     <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true"
         aria-expanded="false">
         <div class="align-icon">
@@ -18,12 +18,12 @@
                                 {{'Segna come già lette'}}
                             </button>
                     <li *ngFor="let notifica of listaNotifiche">
-                        <a role="button" (click)="testoNotificheToggle(notifica.id, notifica.idUtente, notifica.titoloNotifica, notifica.testo, notifica.isLetto)">
+                        <a role="button" (click)="clickNotifica(notifica)">
                             <div class="text-custom-gray d-flex justify-content-between" [ngClass]="{
                         'text-primary fw-bold': !notifica.isLetto
                     }">
-                    <div>{{ notifica.titoloNotifica }}</div> 
-                    <div>{{ notifica.dataCreazione | date: 'dd/MM' }}</div>
+                    <div>{{ notifica.titolo }}</div> 
+                    <div>{{ notifica.data | date: 'dd/MM' }}</div>
                     </div>
                         </a>
                     </li>

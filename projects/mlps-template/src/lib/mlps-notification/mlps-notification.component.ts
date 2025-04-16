@@ -1,5 +1,13 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+
+export interface MLPSNotifica{
+  id?: any,
+  titolo: string,
+  contenuto: string,
+  data: string,
+  isLetto: boolean
+}
 
 @Component({
   selector: 'mlps-notification',
@@ -9,13 +17,20 @@ import { Component, Input } from '@angular/core';
   styleUrl: './mlps-notification.component.scss'
 })
 export class MLPSNotificationComponent {
-  condition: boolean = true
-  @Input() listaNotifiche!: any[];
-  gestioneLetturaNotifiche: boolean = true;
+  @Input() listaNotifiche!: MLPSNotifica[];
+  @Output() notifica: EventEmitter<MLPSNotifica> = new EventEmitter<MLPSNotifica>;
+  @Output() segnaNotificheLette: EventEmitter<any> = new EventEmitter<any>
+  // gestioneLetturaNotifiche: boolean = true;
+
+  get gestioneLetturaNotifiche(): boolean{
+    return this.listaNotifiche.some(notifica => !notifica.isLetto)
+  }
 
   segnaTutteNotificheLette() {
+    this.segnaNotificheLette.emit({segnaTutteComeLette: true})
     }
 
-    testoNotificheToggle(idNotifica: number, idUtente:number, titoloNotifica: string, testo: string, isLetto: boolean) {
+    clickNotifica(notifica: any) {
+      this.notifica.emit(notifica)
     }
 }
