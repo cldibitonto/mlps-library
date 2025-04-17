@@ -9,9 +9,11 @@
   <div class="col close-text">Chiudi</div>
 </div>}
   <div class="alert alert-{{type}} py-4" role="alert">
-    <p class="m-0 text-uppercase bold text-primary-04">{{text}} @if(showAdditionalText){<strong>(<a
+    <p class="m-0 text-uppercase bold text-primary-04">{{text}} @if(showAdditionalText){
+      <!-- <strong>(<a
           (click)="onLinkPressed(idIstanza)" role="button" class="text-uppercase bold">ID PRATICA
-          {{idPratica}}</a>)</strong>}</p>
+          {{idPratica}}</a>)</strong> -->
+        }</p>
   </div>
   @if(paragraphText){
   <p class="p-3 text-primary-04 font-18" [innerHTML]="(paragraphText)"></p>
