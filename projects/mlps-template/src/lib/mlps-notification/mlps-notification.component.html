@@ -13,7 +13,7 @@
                     <ng-container *ngIf="listaNotifiche.length > 0; else nessunaNotifica">
                             <button class="segnaNotificheLette btn btn-link" type="button" (click)="segnaTutteNotificheLette()" [disabled]="!gestioneLetturaNotifiche" [ngClass]="{'disabled-btn': !gestioneLetturaNotifiche}"> 
                                 <svg class="icon-expand icon icon-sm fill-primary-01 me-2" [ngClass]="{'icon-disabled': !gestioneLetturaNotifiche}">
-                                    <use href="public/svg/sprites.svg#it-mail-open"></use>
+                                    <use href="src/assets/svg/sprites.svg#it-mail-open"></use>
                                 </svg>
                                 {{'Segna come già lette'}}
                             </button>
