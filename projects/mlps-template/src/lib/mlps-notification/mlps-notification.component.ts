@@ -46,6 +46,7 @@ export class MLPSNotificationComponent {
    * @returns `true` se esiste almeno una notifica con `isLetto === false`
    */
   get gestioneLetturaNotifiche(): boolean {
+    console.log(this.listaNotifiche.some(notifica => !notifica.isLetto))
     return this.listaNotifiche.some(notifica => !notifica.isLetto);
   }
 
