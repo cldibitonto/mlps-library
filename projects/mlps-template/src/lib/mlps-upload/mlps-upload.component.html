@@ -7,7 +7,7 @@
       @for(file of selectedFiles;track $index){
       <div class="file-item">
         <div class="file-details">
-          <img src="public/svg/pdf.svg" alt="PDF Icon" class="file-icon icon-md" />
+          <img src="src/assets/svg/pdf.svg" alt="PDF Icon" class="file-icon icon-md" />
           <div class="file-info">
             <a class="file-name" (click)="downloadFile(file)" role="button">{{
               file.nomeFile
@@ -19,7 +19,7 @@
         </div>
         @if(showButtonDelete){
         <button type="button" class="delete-btn" (click)="removeFile(file)">
-          <img class="icon-sm" src="public/svg/trash-icon.svg" alt="Delete" />
+          <img class="icon-sm" src="src/assets/trash-icon.svg" alt="Delete" />
         </button>
         }
       </div>
@@ -28,7 +28,7 @@
     } @if((!showIfExeedsLimit && this.selectedFiles.length != this.fileLimit )){
     <label for="{{ id }}-file-upload" class="upload-box" [class.dragging]="true">
       <div class="upload-icon">
-        <img src="public/svg/upload.svg" alt="Upload Icon" />
+        <img src="src/assets/upload.svg" alt="Upload Icon" />
       </div>
       <span class="upload-text">
         <a class="upload-documents" (click)="fileInput.click(); $event.preventDefault()">Carica documenti</a>

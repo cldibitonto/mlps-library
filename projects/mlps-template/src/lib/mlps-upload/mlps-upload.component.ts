@@ -186,8 +186,16 @@ export class MLPSUploadComponent {
         this.modal.toggle();
       },
       onResumeButton: () => {
+        const idx = this.selectedFiles.findIndex(f => f === file);
+        if (idx > -1) {
+          this.selectedFiles.splice(idx, 1);
+        }
+        // 2) Emetto l’evento di cancellazione
         this.filesDeleted.emit(file);
+        // 3) Chiudo il modal
         this.modal.toggle();
+        // 4) Se necessario, riforzo il change detection
+        this.cdr.detectChanges();
       },
       size: 'lg'
     });
