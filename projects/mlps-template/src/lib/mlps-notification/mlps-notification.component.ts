@@ -18,19 +18,17 @@ export interface MLPSNotifica{
 })
 export class MLPSNotificationComponent {
   @Input() listaNotifiche!: MLPSNotifica[];
-  @Output() notifica: EventEmitter<MLPSNotifica> = new EventEmitter<MLPSNotifica>;
-  @Output() segnaNotificheLette: EventEmitter<any> = new EventEmitter<any>
-  // gestioneLetturaNotifiche: boolean = true;
-
+  @Output() notifica: EventEmitter<MLPSNotifica> = new EventEmitter<MLPSNotifica>();
+  @Output() segnaNotificheLette: EventEmitter<any> = new EventEmitter<any>();
   get gestioneLetturaNotifiche(): boolean{
     return this.listaNotifiche.some(notifica => !notifica.isLetto)
   }
 
   segnaTutteNotificheLette() {
     this.segnaNotificheLette.emit({segnaTutteComeLette: true})
-    }
+  }
 
-    clickNotifica(notifica: any) {
+  clickNotifica(notifica: any) {
       this.notifica.emit(notifica)
-    }
+  }
 }
