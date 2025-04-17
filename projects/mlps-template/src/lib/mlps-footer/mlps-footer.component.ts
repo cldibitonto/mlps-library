@@ -1,13 +1,23 @@
 import { Component, Input } from '@angular/core';
 import { SocialMediaItem } from '../mlps-header/mlps-header.component';
 
-interface FooterItem {
+/**
+ * Rappresenta una voce del footer con titolo e URL di destinazione.
+ */
+export interface FooterItem {
+  /** Testo visualizzato per il link */
   title: string;
+  /** Indirizzo a cui punta il link */
   url: string;
 }
 
-export type FooterItems = FooterItem[]
+/** Alias per una lista di voci di footer */
+export type FooterItems = FooterItem[];
 
+/**
+ * Componente per il footer dell’applicazione.
+ * Visualizza un elenco di link personalizzati e collegamenti ai social media.
+ */
 @Component({
   selector: 'mlps-footer',
   standalone: true,
@@ -16,7 +26,15 @@ export type FooterItems = FooterItem[]
   styleUrl: './mlps-footer.component.scss'
 })
 export class MLPSFooterComponent {
-  @Input() footerItems: FooterItems = []
+  /**
+   * Voci di navigazione da mostrare nel footer.
+   * @default []
+   */
+  @Input() footerItems: FooterItems = [];
+
+  /**
+   * Elenco di icone e URL dei profili social da visualizzare nel footer.
+   */
   socialMediaItems: SocialMediaItem[] = [
     {
       icon: 'src/assets/img/f_facebook.png',
@@ -45,13 +63,20 @@ export class MLPSFooterComponent {
     },
     {
       icon: 'src/assets/img/f_rss.png',
-      label: 'rss',
+      label: 'RSS',
       url: 'https://www.cliclavoro.gov.it/Clicomunica/Pagine/Rss.aspx',
     },
   ];
 
+  /**
+   * URL alla policy sulla privacy e social media.
+   */
   privacySocialMediaUrl: string =
     'https://www.cliclavoro.gov.it/pages/my_homepage/privacy_e_social_media_policy/';
+
+  /**
+   * URL alle statistiche del sito.
+   */
   statisticheSitoUrl: string =
     'https://www.cliclavoro.gov.it/pages/my_homepage/statistiche_sito/';
 }

@@ -14,7 +14,12 @@ export interface SocialMediaItem {
   styleUrl: './mlps-header.component.scss'
 })
 export class MLPSHeaderComponent {
-  @Input() title: string = ''
+    /**
+   * Titolo da visualizzare nell’header.
+   * @default 'MLPS'
+   */
+  @Input() title: string = 'MLPS';
+
 
   socialMediaItems: SocialMediaItem[] = [
     {

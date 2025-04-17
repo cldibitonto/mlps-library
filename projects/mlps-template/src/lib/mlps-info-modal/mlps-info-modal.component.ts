@@ -2,21 +2,38 @@ import { ChangeDetectorRef, Component, EventEmitter, Input, Output, ViewChild } 
 import { ItModalComponent } from 'design-angular-kit';
 import { MLPSInfoModalService } from './mlps-info-modal.service';
 
+/**
+ * Opzioni per la configurazione del modal informativo.
+ */
 export interface ModalOptions {
+  /** Dimensione del modal: "sm", "lg" o "xl" */
   size: "sm" | "lg" | "xl" | undefined;
-  type?: 'success' | 'warning'; // Tipo di avviso (successo o avvertimento)
-  title?: string; // Titolo dell'avviso
-  leaveButtonText?: string; // Testo per il pulsante "Abbandona"
-  resumeButtonText?: string; // Testo per il pulsante "Riprendi"
-  text?: string; // Testo principale dell'avviso
-  paragraphText?: string; // Testo aggiuntivo per il paragrafo
-  showResumeButton?: boolean; // Mostra il pulsante "Riprendi"
-  showLeaveButton?: boolean; // Mostra il pulsante "Abbandona"
-  showExtraText?: boolean; // Mostra testo aggiuntivo
-  showButton?: boolean; // Mostra pulsante chiudi
-  keyboardClose?: boolean; // Permette di chiudere la modale tramite tasto esc della tastiera
-  onLeaveButton?: () => void; // Funzione callback per il pulsante "Abbandona"
-  onResumeButton?: () => void; // Funzione callback per il pulsante "Riprendi"
+  /** Tipo di avviso (successo o avvertimento) */
+  type?: 'success' | 'warning';
+  /** Titolo del modal */
+  title?: string;
+  /** Testo principale del modal */
+  text?: string;
+  /** Testo aggiuntivo in un paragrafo */
+  paragraphText?: string;
+  /** Mostra il pulsante "Riprendi" */
+  showResumeButton?: boolean;
+  /** Mostra il pulsante "Abbandona" */
+  showLeaveButton?: boolean;
+  /** Testo del pulsante "Abbandona" */
+  leaveButtonText?: string;
+  /** Testo del pulsante "Riprendi" */
+  resumeButtonText?: string;
+  //** Mostra testo aggiuntivo */
+  showExtraText?: boolean;
+  /** Mostra un pulsante generico di chiusura */
+  showButton?: boolean;
+  /** Permette di chiudere il modal premendo Esc */
+  keyboardClose?: boolean;
+  /** Callback al click su "Abbandona" */
+  onLeaveButton?: () => void;
+  /** Callback al click su "Riprendi" */
+  onResumeButton?: () => void;
 }
 
 @Component({
@@ -27,78 +44,143 @@ export interface ModalOptions {
   styleUrl: './mlps-info-modal.component.scss'
 })
 export class MLPSInfoModalComponent {
+  /** Dimensione corrente del modal */
   size: "sm" | "lg" | "xl" | undefined;
+
+  /** Titolo del modal */
   title?: string;
-  paragraphText?: string
-  showResumeButton: boolean = true
-  showLeaveButton: boolean = true
-  leaveButtonText: string ='abbandona'
-  resumeButtonText: string ='riprendi'
+
+  /** Testo aggiuntivo in paragrafo */
+  paragraphText?: string;
+
+  /** Contenuto principale del modal */
   text: string = '';
-  idIstanza: number = 12345678;
-  idPratica: number = 12345678;
+
+  /** Flag per abilitare la chiusura con ESC */
   keyboardClose: boolean = false;
-  @Input() showButton: boolean = false
+
+  /** Mostra il pulsante generico di chiusura */
+  @Input() showButton: boolean = false;
+
+  /** Posizionamento del modal: center, left o right */
   @Input() position: 'centered' | 'left' | 'right' | undefined = 'centered';
+
+  /** Tipo di avviso: successo o warning */
+  type: 'success' | 'warning' = 'warning';
+
+  /** Testo del pulsante "Abbandona" */
+  leaveButtonText: string = 'abbandona';
+
+  /** Testo del pulsante "Riprendi" */
+  resumeButtonText: string = 'riprendi';
+
+  /** Mostra il pulsante "Riprendi" */
+  showResumeButton: boolean = true;
+
+  /** Mostra il pulsante "Abbandona" */
+  showLeaveButton: boolean = true;
+
+  /** Mostra testo aggiuntivo se true */
   showAdditionalText: boolean = true;
-  type: 'success' | 'warning' = 'warning'
-  @Output() resumeButton: EventEmitter<any> = new EventEmitter;
-  @Output() leaveButton: EventEmitter<any> = new EventEmitter;
-  @ViewChild('lgModal', { static: false }) lgModal!: ItModalComponent;
-  @Output() linkPressed: EventEmitter<any> = new EventEmitter;
 
+  /** Riferimento al componente modal interno */
+  @ViewChild('lgModal', { static: false })
+  lgModal!: ItModalComponent;
 
-  constructor(private readonly cdref: ChangeDetectorRef, private readonly infoModalService: MLPSInfoModalService) { 
-    this.infoModalService.setModalComponent(this)
+  /** Evento emesso quando si clicca su "Riprendi" */
+  @Output() resumeButton: EventEmitter<void> = new EventEmitter<void>();
+
+  /** Evento emesso quando si clicca su "Abbandona" */
+  @Output() leaveButton: EventEmitter<void> = new EventEmitter<void>();
+
+  /** Evento emesso quando si clicca su un link interno del modal */
+  @Output() linkPressed: EventEmitter<any> = new EventEmitter<any>();
+
+  /**
+   * Inietta ChangeDetectorRef e registra questa istanza nel servizio MLPSInfoModalService.
+   * @param cdref - Rilevatore di cambiamenti per forzare il refresh
+   * @param infoModalService - Servizio per controllare il modal dall'esterno
+   */
+  constructor(
+    private readonly cdref: ChangeDetectorRef,
+    private readonly infoModalService: MLPSInfoModalService
+  ) {
+    this.infoModalService.setModalComponent(this);
   }
 
-  ngOnInit() {
-
-    return
+  /** Lifecycle hook per l'inizializzazione (non usa logica aggiuntiva). */
+  ngOnInit(): void {
+    // Intenzionalmente vuoto
   }
+
+  /**  
+   * AfterContentChecked viene usato per forzare il rilevamento dei cambiamenti  
+   * dopo che il contenuto del modal è stato aggiornato.  
+   */
   ngAfterContentChecked(): void {
-    this.cdref.detectChanges()
+    this.cdref.detectChanges();
   }
-  public toggle(options?: ModalOptions) {
+
+  /**
+   * Apre o chiude il modal con le opzioni specificate.
+   * Se vengono passate opzioni, aggiorna le proprietà del componente.
+   * @param options - Oggetto ModalOptions con le configurazioni desiderate
+   */
+  public toggle(options?: ModalOptions): void {
     if (options) {
-      this.keyboardClose = options.keyboardClose ? options.keyboardClose : this.keyboardClose
-      this.size = options.size
-      this.type = options.type ? options.type : this.type
-      this.title = options.title ? options.title : undefined
-      this.text = options.text ? options.text : this.text
-      this.paragraphText = options.paragraphText ? options.paragraphText : undefined
-      this.showResumeButton = options.showResumeButton ?? this.showResumeButton
-      this.showLeaveButton = options.showLeaveButton ?? this.showLeaveButton
-      this.leaveButtonText = options.leaveButtonText ? options.leaveButtonText : this.leaveButtonText
-      this.resumeButtonText = options.resumeButtonText ? options.resumeButtonText : this.resumeButtonText
+      this.keyboardClose = options.keyboardClose ?? this.keyboardClose;
+      this.size = options.size;
+      this.type = options.type ?? this.type;
+      this.title = options.title;
+      this.text = options.text ?? this.text;
+      this.paragraphText = options.paragraphText;
+      this.showResumeButton = options.showResumeButton ?? this.showResumeButton;
+      this.showLeaveButton = options.showLeaveButton ?? this.showLeaveButton;
+      this.leaveButtonText = options.leaveButtonText ?? this.leaveButtonText;
+      this.resumeButtonText = options.resumeButtonText ?? this.resumeButtonText;
       this.showAdditionalText = options.showExtraText ?? false
-      this.showButton = options.showButton ?? false
-      // Imposta le funzioni da collegare all'evento leave e resume
+      this.showButton = options.showButton ?? this.showButton;
+
+      // Se viene fornita una callback, la incapsuliamo e la emettiamo
       if (options.onLeaveButton) {
         this.leaveButtonPressed = () => {
-          options.onLeaveButton!(); // Chiama la funzione passata
-          this.leaveButton.emit(); // Emetti comunque l'evento
+          options.onLeaveButton!();
+          this.leaveButton.emit();
         };
       }
       if (options.onResumeButton) {
         this.resumeButtonPressed = () => {
-          options.onResumeButton!(); // Chiama la funzione passata
-          this.resumeButton.emit(); // Emetti comunque l'evento
+          options.onResumeButton!();
+          this.resumeButton.emit();
         };
       }
     }
-    this.lgModal.toggle()
+
+    // Apre o chiude il modal
+    this.lgModal.toggle();
   }
 
-  leaveButtonPressed() {
-    this.leaveButton.emit()
+  /**
+   * Handler invocato quando si clicca sul pulsante "Abbandona".
+   * Emette l'evento leaveButton.
+   */
+  leaveButtonPressed(): void {
+    this.leaveButton.emit();
   }
 
-  resumeButtonPressed() {
-    this.resumeButton.emit()
+  /**
+   * Handler invocato quando si clicca sul pulsante "Riprendi".
+   * Emette l'evento resumeButton.
+   */
+  resumeButtonPressed(): void {
+    this.resumeButton.emit();
   }
 
-  onLinkPressed(event: any) {
-    this.linkPressed.emit(event)
+  /**
+   * Emette l'evento linkPressed con il parametro ricevuto.
+   * @param event - Dati grezzi dell'evento click sul link
+   */
+  onLinkPressed(event: any): void {
+    this.linkPressed.emit(event);
   }
 }
